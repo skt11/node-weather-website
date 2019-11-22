@@ -6,14 +6,15 @@ const message2 = document.querySelector('#message_2');
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault();
     message1.textContent = 'Fetching forecast...';
+    message2.textContent = '';
     fetch(`/weather?address=${e.target[0].value}`).then((data) => {
-        data.json().then(data => {
-            if (data.error) {
-                message1.textContent = data.error;
+        data.json().then(({ error, location, forecast }) => {
+            if (error) {
+                message1.textContent = error;
                 message2.textContent = '';
             } else {
-                message1.textContent = 'Location: ' + data.location;
-                message2.textContent = 'Forecast: ' + data.summary;
+                message1.textContent = 'Location: ' + location;
+                message2.textContent = 'Forecast: ' + forecast;
             }
         });
     });

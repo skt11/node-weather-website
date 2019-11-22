@@ -54,14 +54,14 @@ app.get('/weather', (req, res) => {
         if (error) {
             res.send({ error });
         } else {
-            weather.forecast(latitude, longitude, (error, { summary, temperature, precipProbability } = {}) => {
+            weather.forecast(latitude, longitude, (error, { forecast, temperature, precipProbability } = {}) => {
                 if (error) {
                     res.send({ error });
                 } else {
                     res.send({
-                        location: location,
-                        summary: summary,
-                        temperature: temperature,
+                        location,
+                        forecast,
+                        temperature,
                         precipProbability: `${precipProbability}%`
                     });
                 }
