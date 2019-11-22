@@ -13,7 +13,7 @@ const forecast = (latitude, longitude, callBack) => {
                 temperature: body.currently.temperature,
                 precipProbability: body.currently.precipProbability,
                 forecast: `${body.daily.data[0].summary} It is ${body.currently.temperature} degrees outside with a ${body.currently.precipProbability}% chance of rain.
-Highest temperature hitting ${body.daily.data[0].temperatureHigh} degrees and lowest hittng ${body.daily.data[0].temperatureLow} degrees for the day.`
+Highest temperature hitting ${body.daily.data[0].temperatureHigh} degrees and lowest hitting ${body.daily.data[0].temperatureLow} degrees for the day.`
             });
         }
     });
